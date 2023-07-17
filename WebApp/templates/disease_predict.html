@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Image Upload</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        img{
+            max-width: 100%;
+        max-height: 100%;
+        display: block;
+        }
+
+        .container {
+            max-width: 400px;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .input-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .custom-file-upload {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        input[type="submit"] {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #008CBA;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .image-container {
+            max-width: 100%;
+            max-height: 400px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .res-pre{
+            margin-top: 10px;
+            font-family: monospace;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        #predicted-response{
+            margin-top: 10px;
+            font-family: monospace;
+            font-weight: bold;
+            font-size: 18px;
+            color:#5b8a9a;
+            border-bottom: 2px solid #5b8a9a ;
+            
+        }
+
+        .filename {
+            margin-top: 5px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>X-Ray Image Classifier</h1>
+        <form method="POST" action="/" enctype="multipart/form-data">
+            <label for="file-upload" class="custom-file-upload">
+                
+                <input id="file-upload" type="file" name="file" accept="image/* " onchange="readURL(this)">
+                <br>
+                <div><img id ='disease-image' src="#", alt="Upload Your Image"></div>
+            </label>
+            <span class="filename" id="file-name"></span>
+            <input type="submit" value="Submit" id="image_predict"><br><span class="res-pre">The Reponse of Your Query is </span><br><span id="predicted-response"  ></span>
+        </form>
+
+        
+    </div>
+
+    <script>
+        const fileInput = document.getElementById("file-upload");
+        const fileNameSpan = document.getElementById("file-name");
+
+        fileInput.addEventListener("change", (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                fileNameSpan.textContent = file.name;
+            } else {
+                fileNameSpan.textContent = "";
+            }
+        });
+
+
+        $(document).ready(function(){
+                        $("#image_predict").click(function(e){
+                            e.preventDefault();
+                        var uploadDatasetId = this.id;
+             sendRequest(uploadDatasetId);
+                        });
+                })
+
+        function  sendRequest(buttonId){
+                        var datasetFile = document.querySelector('#file-upload').files[0]; 
+                        var formData = new FormData();
+
+                        formData.append('file',datasetFile);
+                        formData.append('submit-button', buttonId);
+
+                        $.ajax({
+                            type:'POST',
+                            url: 'http://127.0.0.1:5000/disease_predict',
+                            
+                            data:formData,
+                            processData: false, // Prevent jQuery from automatically processing the data
+                            contentType: false, // Prevent jQuery from automatically setting the content type
+                            success: function (response) {
+                                var result = $.parseJSON(response)
+             
+             $('#predicted-response').text(result['status'])
+               
+            },
+    })
+  }
+
+  function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#disease-image')
+                        .attr('src', e.target.result)
+                        
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+</script>
+   
+</body>
+</html>

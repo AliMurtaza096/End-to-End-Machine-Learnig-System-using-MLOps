@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<div id="banner">
+<html lang="en" >
+    
+
+    <head>
+        
+
+        <title>MLOps</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <style type="text/css">    
+            body
+            {
+                width:100%x;
+                height:100%;
+                text-align:center;
+                background-image:url(https://developer-blogs.nvidia.com/wp-content/uploads/2023/03/cybersecurity-abstract-image.png);
+                background-repeat:no-repeat;
+            }
+      
+            h1
+            {
+              font-size:48px;
+              margin-top:0;
+              font-family:Arial, sans-serif;
+              color:rgb(246, 248, 250);
+              text-shadow:2px 0 15px #ac2626;
+              letter-spacing:4px;
+              text-decoration:none;
+              color:#eb9090;
+            }
+      
+
+      
+            .lead
+            {
+              background-color:rgba(255,255,255,0.6);
+              border-radius:3px;
+              box-shadow:rgba(0,0,0,0.2) 0 1px 3px;
+              font-family:Sintony, sans-serif;
+            }
+          </style>
+    </head>
+    <center> <h1 style="font-family: sans-serif; margin-top:20px; color:rgb(214, 198, 198)">Bridging the Gap: MLOPS</h1></center> 
+        
+        
+    
+
+    <body > 
+        
+        
+            
+        <br>
+         <center>
+          <div>
+            
+           <button  id="signup" style="height: 50px; width:120px" class="btn btn-primary btn-lg" onclick="SignUp() "   type="button"> SignUp </button>
+           
+          </div>
+          <br>
+          <div>
+            
+            <button  id="login" style="height: 50px; width:120px" class="btn btn-primary btn-lg" onclick="Login() "  type="button"> Login </button>
+            
+           </div>
+            
+        </center>
+        
+
+    
+                </body>
+            </div>
+                <script>
+                    function SignUp() {
+                    
+                    $.ajax({
+                    type:'GET',
+                    url:'http://127.0.0.1:5000',
+                    success: function(response){
+                    window.location.href="{{url_for('signup')}}"
+        
+                }
+            })
+                    }
+        
+                    function Login() {
+                    
+                    $.ajax({
+                    type:'GET',
+                    url:'http://127.0.0.1:5000',
+                    success: function(response){
+                    window.location.href="{{url_for('login')}}"
+        
+                }
+            })
+                    }
+        
+                </script>
+    
+</html>

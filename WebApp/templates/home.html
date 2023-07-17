@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: rgb(193, 193, 223);">
+<head>
+    <title>MLOps</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: rgb(193, 193, 223);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 10vh;
+        }
+        
+        h1 {
+            font-family: sans-serif;
+            color: rgb(68, 63, 63);
+            margin-bottom: 20px;
+        }
+        
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .info-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            text-align: center;
+        }
+        
+        .info-paragraph {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    
+
+
+
+
+    <body style="background-color:rgb(193, 193, 223); margin-top:30px;">
+
+
+        <center><form style=" background-color:rgb(212, 212, 236); height: 500px; width:500px; border: 2px solid #d2d2df;
+        border-radius: 5px;" >
+          <!-- Email input -->
+          <h1 style="padding-left: 30px; padding-right: 30px; padding-bottom:20px;padding-top:20px;">  Choose Your Problem  </h1>
+          <hr>
+          <br>
+          
+        
+          <!-- 2 column grid layout for inline styling -->
+          
+        
+           <br>
+        
+          <!-- Submit button -->
+          
+          <button id="BankChurnPrediction" style="height: 50px; width: 228px" class="btn btn-primary btn-lg" onclick="BanKChurnPrediction()" type="button">Bank Churn Prediction</button>
+          
+          <br>
+          <br>
+        
+        <button id="XRayImageClassification" style="height: 50px; width: 230px" class="btn btn-primary btn-lg" onclick="XrayImageClassification()" type="button">Disease Classification</button>
+        
+          
+        </form>
+      </center>
+      
+          
+          
+          
+      
+      </body>
+
+
+    <script>
+        function BanKChurnPrediction() {
+            $.ajax({
+                type: 'GET',
+                url: 'http://127.0.0.1:5000/home',
+                success: function(response) {
+                    window.location.href = "{{url_for('dashboard')}}";
+                }
+            });
+        }
+
+        function XrayImageClassification() {
+            $.ajax({
+                type: 'GET',
+                url: 'http://127.0.0.1:5000/home',
+                success: function(response) {
+                    window.location.href = "{{url_for('disease_predict')}}";
+                }
+            });
+        }
+    </script>
+
+</html>

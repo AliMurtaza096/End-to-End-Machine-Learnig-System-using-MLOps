@@ -1,0 +1,15 @@
+artifact_uri: /home/ali/Desktop/mlops-fyp/mlops/MLOps-Last/./mlruns/628052162558681643/ac558f07b848451eae284da479bf8f49/artifacts
+end_time: 1689585663108
+entry_point_name: ''
+experiment_id: '628052162558681643'
+lifecycle_stage: active
+run_id: ac558f07b848451eae284da479bf8f49
+run_name: resilient-shrew-304
+run_uuid: ac558f07b848451eae284da479bf8f49
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1689585658932
+status: 3
+tags: []
+user_id: ali

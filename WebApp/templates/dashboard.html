@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Dashboard</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+
+      
+    <body style="background-color:rgb(193, 193, 223);">
+    <center>
+    <div style=" margin-top:30px; background-color:rgb(212, 212, 236); height: 530px; width:800px; border: 2px solid #d2d2df;
+    border-radius: 5px;">
+        <h1> Welcome  <span style="color:rgb(58, 128, 128)">{{data}}</span>  </h1> 
+        <h2> This is your Machine Learning System </h2> 
+  
+        <br>
+         
+          <div >
+            
+           <button  id="live-prediction"  class="btn btn-primary btn-lg" onclick="livePrediction() "   type="button"> Get live Prediction </button>
+           
+          </div>
+          <hr>
+        
+         
+          <div > 
+            <form method ="POST"  enctype="multipart/form-data"> 
+            <label for="datasetFile" class="form-label">Upload Dataset for Training</label>
+        <center><input style="width: 230px;"  class="form-control" type="file" name="file"id="train_data_file" accept=".csv"></center>
+            <br>
+            <button type="submit" id ="uploadTrainDataset"  class="btn btn-primary btn-lg">Train Data</button>
+        </form>   
+        </div>
+        <hr>
+        
+          <div >
+            <form method ="POST"  enctype="multipart/form-data"> 
+            <label for="datasetFile" class="form-label">Upload Dataset File for Batch Prediction</label>
+            <center><input style="width: 230px;" class="form-control" type="file" name="file"id="datasetFile" accept=".csv"></center>
+            <br>
+            <button type="submit" id ="uploadDataset"  class="btn btn-primary btn-lg">Batch Predict</button>
+        </form>   
+        </div>
+        <hr>
+        
+    </div>
+    <hr>
+    <span class="res-pre"> </span><span style="font-size:20px" id="predicted-response"  ></span>
+        
+    
+</div>
+</center>
+                </body>
+            
+                <script>
+                    function livePrediction() {
+                    
+                    $.ajax({
+                    type:'GET',
+                    url:'http://127.0.0.1:5000',
+                    success: function(response){
+                    window.location.href="{{url_for('prediction')}}"
+        
+                }
+            })
+                    }
+                    
+                    $(document).ready(function(){
+                        $("#uploadDataset").click(function(e){
+                            e.preventDefault();
+                        var uploadDatasetId = this.id;
+             sendRequest(uploadDatasetId);
+                        });
+                })
+
+
+                $(document).ready(function(){
+                    $("#uploadTrainDataset").click(function(e){
+                        e.preventDefault();
+                    var uploadDatasetId = this.id;
+         trainRequest(uploadDatasetId);
+                    });
+            })
+
+                        function  sendRequest(buttonId){
+                        var datasetFile = document.querySelector('#datasetFile').files[0]; 
+                        var formData = new FormData();
+
+                        formData.append('file',datasetFile);
+                        formData.append('submit-button', buttonId);
+
+                        $.ajax({
+                            type:'POST',
+                            url: 'http://127.0.0.1:5000/dashboard',
+                            
+                            data:formData,
+                            processData: false, // Prevent jQuery from automatically processing the data
+                            contentType: false, // Prevent jQuery from automatically setting the content type
+                            success: function (response) {
+                                var result = $.parseJSON(response)
+             
+             $('#predicted-response').text(result['status'])
+                                
+                                
+                                    
+                                    
+                                },
+                            error: function(xhr, status, error) {
+                        console.error(error);
+                        }
+                        })
+                        }
+                        function  trainRequest(buttonId){
+                            var datasetFile = document.querySelector('#train_data_file').files[0]; 
+                            var formData = new FormData();
+    
+                            formData.append('file',datasetFile);
+                            formData.append('submit-button', buttonId);
+    
+                            $.ajax({
+                                type:'POST',
+                                url: 'http://127.0.0.1:5000/dashboard',
+                                
+                                data:formData,
+                                processData: false, // Prevent jQuery from automatically processing the data
+                                contentType: false, // Prevent jQuery from automatically setting the content type
+                                success: function (response) {
+                                    console.log(response)
+                                    
+                                    
+                                        
+                                        
+                                    },
+                                error: function(xhr, status, error) {
+                            console.error(error);
+                            }
+                            })
+                            }
+                </script>
+    
+</html>

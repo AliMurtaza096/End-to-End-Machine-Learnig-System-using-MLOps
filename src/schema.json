@@ -1,0 +1,42 @@
+{
+    "credit_score": {
+        "mean": 648.189,
+        "std": 91.75
+    },
+    "geography": {
+        "mean": 0.6718,
+        "std": 0.75
+    },
+    "gender": {
+        "mean": 0.415,
+        "std": 0.4928
+    },
+    "age": {
+        "mean": 40.9,
+        "std": 10.038
+    },
+    "tenure": {
+        "mean": 4.8255,
+        "std": 2.725
+    },
+    "balance": {
+        "mean": 82171.89,
+        "std": 61601.92
+    },
+    "num_of_products": {
+        "mean": 1.422,
+        "std": 0.5735
+    },
+    "has_credit_card": {
+        "mean": 0.6274,
+        "std": 0.4842
+    },
+    "is_active_member": {
+        "mean": 0.3698,
+        "std": 0.4828
+    },
+    "estimated_salary": {
+        "mean": 101008.408,
+        "std": 57640.45
+    }
+}

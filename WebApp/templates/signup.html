@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body style="background-color:rgb(193, 193, 223); margin-top:30px;">
+ 
+    <center><form method="POST" style=" background-color:rgb(212, 212, 236); height: 500px; width:500px; border: 2px solid #d2d2df;
+      border-radius: 5px;" >
+      <h1 style="padding-left: 30px; padding-right: 30px; padding-bottom:30px;"> Sign Up </h1>
+      <hr>
+        <div style="padding-left: 30px; padding-right: 30px;" class="form-group">
+          <label for="exampleInputEmail1">Email</label>
+          <input type="email" class="form-control" name="email" id ="email"  placeholder="Email">
+          
+        </div>
+        <div style="padding-left: 30px; padding-right: 30px;" class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" name="password" id ="password" placeholder="Password" >
+        </div>
+        <div style="padding-left: 30px; padding-right: 30px;;" class="form-group">
+            <label for="exampleInputPassword1">Confirm Password</label>
+            <input type="password" class="form-control" name="cpassword" id ="cpassword" placeholder="Confirm Password" >
+          </div>
+        
+        <button type="submit" class="btn btn-primary" >Sign Up</button>
+</form>
+</center>
+
+
+    
+    
+    
+
+</body>
+
+<script>
+
+
+$("button").click(function (e) { 
+  e.preventDefault();
+         sendRequest($("#email").val(), $("#password").val(),$("#cpassword").val());
+         
+      });
+    function  sendRequest(email,password,cpassword){
+    $.ajax({
+        type:'POST',
+        url: 'http://127.0.0.1:5000/signup',
+        
+        data:{'email':email,'password':password,'cpassword':cpassword},
+        success: function (response) {
+            if(response['status']=='OK'){
+              window.location.href= "{{url_for('login')}}"
+            } else {
+              alert(response['status'])
+            }
+            
+               
+               
+            },
+    })
+    }
+
+</script>
+
+
+</html>

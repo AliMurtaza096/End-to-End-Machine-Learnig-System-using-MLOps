@@ -1,0 +1,12 @@
+creation_timestamp: 1689585835783
+current_stage: None
+description: null
+last_updated_timestamp: 1689585835783
+name: Bank Churn Prediction
+run_id: 06a4f01b05124aa59eb8d8d3a833528a
+run_link: null
+source: /home/ali/Desktop/mlops-fyp/mlops/MLOps-Last/./mlruns/628052162558681643/06a4f01b05124aa59eb8d8d3a833528a/artifacts/model
+status: READY
+status_message: null
+user_id: null
+version: 3

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sign In</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body style="background-color:rgb(193, 193, 223); margin-top:30px;">
+
+
+  <center><form style=" background-color:rgb(212, 212, 236); height: 500px; width:500px; border: 2px solid #d2d2df;
+  border-radius: 5px;" >
+    <!-- Email input -->
+    <h1 style="padding-left: 30px; padding-right: 30px; padding-bottom:30px;">  Sign In  </h1>
+    <hr>
+    <br>
+    <div style="padding-left: 30px; padding-right: 30px;" class="form-outline mb-4">
+      <label class="form-label" for="form2Example1">Email address</label>
+      <br>
+      <input type="email" id="email" class="form-control" />
+    </div>
+    <br>
+    <!-- Password input -->
+    <div style="padding-left: 30px; padding-right: 30px;" class="form-outline mb-4">
+      <label class="form-label" for="form2Example2">Password</label>
+      <br>
+      <input type="password" id="password" class="form-control" />
+    </div>
+  
+    <!-- 2 column grid layout for inline styling -->
+    
+  
+     <br>
+  
+    <!-- Submit button -->
+    <button style="height: 30px; width:120px" type="button" class="btn btn-primary btn-block ">Sign in</button>
+  
+    
+  </form>
+</center>
+
+    
+    
+    
+
+</body>
+
+<script>
+
+
+  $("button").click(function (e) { 
+    e.preventDefault();
+           sendRequest($("#email").val(), $("#password").val());
+           
+        });
+      function  sendRequest(email,password){
+      $.ajax({
+          type:'POST',
+          url: 'http://127.0.0.1:5000/login',
+          
+          data:{'email':email,'password':password},
+          success: function (response) {
+            if(response['status']=='OK'){
+              window.location.href= "{{url_for('home')}}"
+              } else{
+                alert(response['status'])
+              }
+              
+                 
+                 
+              },
+      })
+      }
+  
+  </script>
+  
+</html>

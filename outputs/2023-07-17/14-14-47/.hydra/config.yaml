@@ -1,0 +1,10 @@
+churn_names:
+  experiment_name: demo_exp1
+  metric_name: accuracy
+churn_paths:
+  train_dir: ./dataset/train/Churn_Modelling.csv
+  mlflow_tracking_uri: ./mlruns
+  model_artifact_dir: runs:/5632414a0cee4ddf8d0525ed1b05b6b0/model
+  fig_path: ./src/figures/confusion_matrix.png
+churn_params:
+  train_test_split: 0.2

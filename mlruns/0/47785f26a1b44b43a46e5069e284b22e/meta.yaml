@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ali/Desktop/mlops-fyp/mlops/MLOps-Last/mlruns/0/47785f26a1b44b43a46e5069e284b22e/artifacts
+end_time: 1689589958342
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 47785f26a1b44b43a46e5069e284b22e
+run_name: blushing-calf-464
+run_uuid: 47785f26a1b44b43a46e5069e284b22e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1689589958335
+status: 3
+tags: []
+user_id: ali

@@ -1,0 +1,9 @@
+names:
+  experiment_name: demo_exp1
+  metric_name: accuracy
+paths:
+  train_dir: ${hydra:runtime.cwd}/./dataset/train/Churn_Modelling.csv
+  mlflow_tracking_uri: /home/ali/Desktop/FYP/MLflow/mlops_fyp/mlruns
+  model_artifact_dir: /home/ali/Desktop/FYP/MLflow/mlops_fyp/mlruns/models
+params:
+  train_test_split: 0.2

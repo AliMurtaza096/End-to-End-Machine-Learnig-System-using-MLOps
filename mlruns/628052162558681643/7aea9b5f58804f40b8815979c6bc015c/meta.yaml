@@ -1,0 +1,15 @@
+artifact_uri: /home/ali/Desktop/mlops-fyp/mlops/MLOps-Last/./mlruns/628052162558681643/7aea9b5f58804f40b8815979c6bc015c/artifacts
+end_time: 1689587788757
+entry_point_name: ''
+experiment_id: '628052162558681643'
+lifecycle_stage: active
+run_id: 7aea9b5f58804f40b8815979c6bc015c
+run_name: rogue-cow-605
+run_uuid: 7aea9b5f58804f40b8815979c6bc015c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1689587505187
+status: 3
+tags: []
+user_id: ali

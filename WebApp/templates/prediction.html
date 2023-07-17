@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+  .formbold-mb-3 {
+    margin-bottom: 15px;
+  }
+  .formbold-relative {
+    position: relative;
+  }
+  .formbold-opacity-0 {
+    opacity: 0;
+  }
+  .formbold-stroke-current {
+    stroke: currentColor;
+  }
+  #supportCheckbox:checked ~ div span {
+    opacity: 1;
+  }
+
+  .formbold-main-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+  }
+
+  .formbold-form-wrapper {
+
+    
+
+    margin: 0 auto;
+    max-width: 570px;
+    width: 100%;
+    background: white;
+    padding: 40px;
+  }
+
+  .formbold-img {
+    margin-bottom: 45px;
+  }
+  .res-pre{
+    font-size: 20px;
+    font-family: sans-serif;
+    color: #536387;
+    margin-left: 30px;
+  }
+  #predicted-response{
+    width: 30px;
+    height:30px;
+    border: 5px #536387;
+    border-radius: 5px;
+    font-size: 20px;
+    color: #536387;
+
+  }
+  .formbold-form-title {
+    margin-bottom: 30px;
+  }
+  .formbold-form-title h2 {
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 34px;
+    color: #07074d;
+  }
+  .formbold-form-title p {
+    font-size: 16px;
+    line-height: 24px;
+    color: #536387;
+    margin-top: 12px;
+  }
+
+  .formbold-input-flex {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+  }
+  .formbold-input-flex > div {
+    width: 50%;
+  }
+  .formbold-form-input {
+    text-align: center;
+    width: 100%;
+    padding: 13px 22px;
+    border-radius: 5px;
+    border: 1px solid #dde3ec;
+    background: #ffffff;
+    font-weight: 500;
+    font-size: 16px;
+    color: #536387;
+    outline: none;
+    resize: none;
+  }
+  .formbold-form-input:focus {
+    border-color: #6a64f1;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+  }
+  .formbold-form-label {
+    color: #536387;
+    font-size: 14px;
+    line-height: 24px;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .formbold-checkbox-label {
+    display: flex;
+    cursor: pointer;
+    user-select: none;
+    font-size: 16px;
+    line-height: 24px;
+    color: #536387;
+  }
+  .formbold-checkbox-label a {
+    margin-left: 5px;
+    color: #6a64f1;
+  }
+  .formbold-input-checkbox {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  .formbold-checkbox-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    margin-right: 16px;
+    margin-top: 2px;
+    border: 0.7px solid #dde3ec;
+    border-radius: 3px;
+  }
+
+  .formbold-btn {
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 14px 25px;
+    border: none;
+    font-weight: 500;
+    background-color: #6a64f1;
+    color: white;
+    cursor: pointer;
+    margin-top: 25px;
+  }
+  .formbold-btn:hover {
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .signup-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+</style>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="formbold-main-wrapper">
+  <!-- Author: FormBold Team -->
+  <!-- Learn More: https://formbold.com -->
+  <div class="formbold-form-wrapper">
+    
+
+    <form action="https://formbold.com/s/FORM_ID" method="POST">
+      <div class="formbold-form-title">
+        <h2 class="">Predicting the Customers</h2>
+        <p>
+          Kindly input the details of your Customers
+        </p>
+      </div>
+
+      <div class="formbold-input-flex">
+        <div>
+          <label for="credit score" class="formbold-form-label" style="font-weight: bold;">
+            Credit Score
+          </label>
+          <input
+            type="text"
+            name="credit_score"
+            id="credit_score"
+            class="formbold-form-input"
+            placeholder="Enter Your Credit Score"
+            
+
+          />
+          
+        </div>
+        <br>
+        <div id="'genders">
+          
+          <label for="Gender" class="formbold-form-label" style="font-weight: bold;" > Gender </label>
+          <input type="radio" name='gender' value=0 onclick="getSelectedValue(this)"/> Male <br>  
+<input type="radio" name='gender' value =1 onclick="getSelectedValue(this)"/> Female <br>  
+
+        </div>
+      </div>
+  
+
+      <div class="formbold-input-flex">
+        <div>
+          <label for="Age" class="formbold-form-label" style="font-weight: bold;"> Age</label>
+          <input
+            type="text"
+            name="age"
+            id="age"
+            class="formbold-form-input"
+            placeholder="Age of customer"
+          />
+        </div>
+        <div>
+          <label for="Tenure" class="formbold-form-label" style="font-weight: bold;"> Tenure </label>
+          <input
+            type="text"
+            name="tenure"
+            id="tenure"
+            class="formbold-form-input"
+            placeholder="Customer for how many years"
+          />
+        </div>
+      </div>
+
+      <div class="formbold-mb-3">
+        <label for="Balance" class="formbold-form-label" style="font-weight: bold;">
+          Balance
+        </label>
+        <input
+          type="text"
+          name="balance"
+          id="balance"
+          class="formbold-form-input"
+          placeholder="Enter current Balance in Account"
+        />
+      </div>
+
+      <div class="formbold-mb-3">
+        <label for="num_of_products" class="formbold-form-label" style="font-weight: bold;">
+          Num of Products
+        </label>
+        <input
+          type="text"
+          name="num_of_products"
+          id="num_of_products"
+          class="formbold-form-input"
+          placeholder="Num of services used by customer"
+        />
+      </div>
+
+      <div class="formbold-input-flex">
+        <div id="card">
+          <label for="Has Credit Card" class="formbold-form-label" style="font-weight: bold;"> Has Credit Card </label>
+          <input type="radio" name='card' value=1 onclick="getCardValue(this)"/> Yes <br>  
+<input type="radio" name='card' value =0 onclick="getCardValue(this)"/> No <br>  
+        </div>
+        <div id ='active_mem'>
+          <label for="Is Active member" class="formbold-form-label" style="font-weight: bold;"> Is Active member </label>
+          <input type="radio" name='active' value=1 onclick="getActiveValue(this)"/> Yes <br>  
+<input type="radio" name='active' value =0 onclick="getActiveValue(this)"/> No <br>  
+        </div>
+      </div>
+
+      <div class="formbold-input-flex">
+        <div>
+          <label for="Estimated Salary" class="formbold-form-label" style="font-weight: bold;"> Estimated Salary </label>
+          <input
+            type="text"
+            name="estimated_salary"
+            id="estimated_salary"
+            class="formbold-form-input"
+            placeholder="Yearly Estimated Salary"
+          />
+        </div>
+        <div>
+          <label for="Geography" class="formbold-form-label" style="font-weight: bold;">Geography  </label>
+          <select id="menu">
+            <option value="0">France</option>
+            <option value="1">Germany</option>
+            <option value="2">Spain</option>
+            
+          </select>
+        </div>
+      </div>
+
+      
+
+      <button type="submit" class="formbold-btn">Predict</button><span class="res-pre"></span><span id="predicted-response"  ></span>
+    </form>
+  </div>
+</div>
+<div>
+
+</div>
+
+
+
+
+</body>
+
+<script>
+  var selectedValue;
+ function getSelectedValue(radioButton) {
+  genderValue = radioButton.value; 
+    console.log(radioButton.value);
+  }
+
+  var cardValue;
+ function getCardValue(radioButton) {
+  cardValue = radioButton.value; 
+    console.log(radioButton.value);
+  }
+
+  var activeValue;
+ function getActiveValue(radioButton) {
+  activeValue = radioButton.value; 
+    console.log(radioButton.value);
+  }
+
+  var countryValue;
+  document.getElementById("menu").addEventListener("change", function() {
+    countryValue = this.value; // Retrieve the selected value
+    console.log(countryValue); // Optional: log the value to the console
+  });
+  
+
+
+
+
+
+
+
+
+  
+  $("button").click(function (e) { 
+    e.preventDefault();
+           sendRequest($("#credit_score").val(),countryValue,genderValue, $("#age").val(), $("#tenure").val(), 
+           $("#balance").val(),$("#num_of_products").val(), cardValue,activeValue,$("#estimated_salary").val());
+           
+        });
+      function  sendRequest(credit_score,geography,gender,age,tenure,balance,num_of_products,has_credit_card,is_active_member,estimated_salary){
+      $.ajax({
+
+          type:'POST',
+          url: 'http://127.0.0.1:5000/prediction',
+          
+          data:{'credit_score':credit_score,'geography':geography,'gender':gender,
+      'age':age,'tenure':tenure,'balance':balance,'num_of_products': num_of_products,
+      'has_credit_card':has_credit_card,'is_active_member': is_active_member,'estimated_salary':estimated_salary},
+      
+          success: function (response) {
+             var result = $.parseJSON(response)
+             var value = result['status']
+             if (value == 0) {
+              $('#predicted-response').text('The Person is Likely to Leave the Bank')
+} else {
+  $('#predicted-response').text('This Person is Not Likely to Leave the Bank')
+}
+             
+
+             
+              
+                 
+                 
+              },
+      })
+    }
+</script>
+</html>

@@ -1,0 +1,15 @@
+artifact_uri: /home/ali/Desktop/mlops-fyp/mlops/MLOps-Last/./mlruns/967032805873801562/9a26fb5403d04240b8cf6d2b06bb260d/artifacts
+end_time: 1689590350984
+entry_point_name: ''
+experiment_id: '967032805873801562'
+lifecycle_stage: active
+run_id: 9a26fb5403d04240b8cf6d2b06bb260d
+run_name: nervous-croc-816
+run_uuid: 9a26fb5403d04240b8cf6d2b06bb260d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1689590295511
+status: 4
+tags: []
+user_id: ali

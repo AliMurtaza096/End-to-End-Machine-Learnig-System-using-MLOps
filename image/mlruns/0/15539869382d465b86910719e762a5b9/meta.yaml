@@ -1,0 +1,15 @@
+artifact_uri: file:///E:/FYP/mlops/MLOps-FYP/image/mlruns/0/15539869382d465b86910719e762a5b9/artifacts
+end_time: 1684730292687
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 15539869382d465b86910719e762a5b9
+run_name: x_ray
+run_uuid: 15539869382d465b86910719e762a5b9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1684730292634
+status: 3
+tags: []
+user_id: HP
