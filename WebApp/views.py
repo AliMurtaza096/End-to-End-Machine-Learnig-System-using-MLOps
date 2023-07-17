@@ -97,6 +97,7 @@ def dashboard():
             file_data = pd.read_csv(file_path)
             
             predictor = ChurnPredict(cfg.churn_paths.model_artifact_dir,**{'data' :file_data})
+            print(cfg.churn_paths.model_artifact_dir)
             model_response = predictor.batch_predict()
             model_response = list(model_response)
             model_response =  [int(i) for i in model_response]

@@ -1,0 +1,15 @@
+artifact_uri: /home/ali/Desktop/mlops-fyp/mlops/MLOps-Last/./mlruns/967032805873801562/9663980282ee42c3857512a0522a3d78/artifacts
+end_time: 1689618279606
+entry_point_name: ''
+experiment_id: '967032805873801562'
+lifecycle_stage: active
+run_id: 9663980282ee42c3857512a0522a3d78
+run_name: judicious-foal-279
+run_uuid: 9663980282ee42c3857512a0522a3d78
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1689618207841
+status: 3
+tags: []
+user_id: ali
