@@ -1,5 +1,5 @@
 import os
-from flask import render_template,request,session,jsonify
+from flask import render_template,request,session,jsonify,send_file
 
 from src.prediction import ChurnPredict
 from image.prediction import DiseasePredict
@@ -11,6 +11,7 @@ from omegaconf import OmegaConf
 import json
 from werkzeug.utils import secure_filename
 import pandas as pd
+from datetime import datetime
 
 # predictor = DiseasePredict("runs:/215fe8821da24c199208cb1c267ab88c/model")
 # loaded_model = predictor.load_model()
@@ -97,14 +98,23 @@ def dashboard():
             file_data = pd.read_csv(file_path)
             
             predictor = ChurnPredict(cfg.churn_paths.model_artifact_dir,**{'data' :file_data})
-            print(cfg.churn_paths.model_artifact_dir)
-            model_response = predictor.batch_predict()
-            model_response = list(model_response)
-            model_response =  [int(i) for i in model_response]
             
-            model_response = json.dumps({'status':model_response})
+            model_response = predictor.batch_predict()
+            # df = pd.DataFrame(model_response)
+            
+            new_filename = f'{filename.split(".")[0]}_{str(datetime.now())}.csv'
+            
+            model_response.to_csv(os.path.join(cfg.churn_paths.save_file_path,new_filename))
+            
 
-            return jsonify(model_response)
+            # model_response = list(model_response)
+            # model_response =  [int(i) for i in model_response]
+            
+            # model_response = json.dumps({'status':model_response})
+
+            # return jsonify(model_response)
+            
+            return send_file(os.path.join(cfg.churn_paths.save_file_path, new_filename))
         elif request.form['submit-button'] =='uploadTrainDataset':
             print('uploadTrainDataset')
             dataset_file = request.files['file']

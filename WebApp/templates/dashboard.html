@@ -60,7 +60,7 @@
                     
                     $.ajax({
                     type:'GET',
-                    url:'http://127.0.0.1:5000',
+                    url:'/',
                     success: function(response){
                     window.location.href="{{url_for('prediction')}}"
         
@@ -94,7 +94,7 @@
 
                         $.ajax({
                             type:'POST',
-                            url: 'http://127.0.0.1:5000/dashboard',
+                            url: '/dashboard',
                             
                             data:formData,
                             processData: false, // Prevent jQuery from automatically processing the data
@@ -122,7 +122,7 @@
     
                             $.ajax({
                                 type:'POST',
-                                url: 'http://127.0.0.1:5000/dashboard',
+                                url: '/dashboard',
                                 
                                 data:formData,
                                 processData: false, // Prevent jQuery from automatically processing the data

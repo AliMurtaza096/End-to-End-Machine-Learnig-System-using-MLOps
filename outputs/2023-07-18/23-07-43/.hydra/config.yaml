@@ -1,0 +1,19 @@
+churn_names:
+  experiment_name: demo_exp1
+  metric_name: accuracy
+churn_paths:
+  train_dir: ./dataset/train/Churn_Modelling.csv
+  mlflow_tracking_uri: ./mlruns
+  model_artifact_dir: runs:/7aea9b5f58804f40b8815979c6bc015c/model
+  fig_path: ./src/figures/confusion_matrix.png
+churn_params:
+  train_test_split: 0.2
+image_names:
+  experiment_name: img_exp1
+  metric_name: accuracy
+image_paths:
+  train_dir: ./chest_xray/train
+  mlflow_tracking_uri: ./mlruns
+  model_artifact_dir: runs:/06a4f01b05124aa59eb8d8d3a833528a/model
+image_params:
+  train_test_split: 0.2

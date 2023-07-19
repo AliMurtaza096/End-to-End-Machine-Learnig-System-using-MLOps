@@ -5,8 +5,9 @@ churn_names:
 churn_paths:
   train_dir: ./dataset/train/Churn_Modelling.csv
   mlflow_tracking_uri: ${hydra:runtime.cwd}/./mlruns
-  model_artifact_dir: runs:/06a4f01b05124aa59eb8d8d3a833528a/model
+  model_artifact_dir: runs:/2edb2142fd414ba9bf9d04cb64aa4d0b/model
   fig_path: ./src/figures/confusion_matrix.png
+  save_file_path: ./dataset/download
 churn_params:
   train_test_split: 0.2
 
