@@ -1,5 +1,5 @@
 import os
-from flask import render_template,request,session,jsonify,send_file
+from flask import render_template,request,session,jsonify,send_file,send_from_directory
 
 from src.prediction import ChurnPredict
 from image.prediction import DiseasePredict
@@ -105,7 +105,7 @@ def dashboard():
             new_filename = f'{filename.split(".")[0]}_{str(datetime.now())}.csv'
             
             model_response.to_csv(os.path.join(cfg.churn_paths.save_file_path,new_filename))
-            
+            print(new_filename)
 
             # model_response = list(model_response)
             # model_response =  [int(i) for i in model_response]
@@ -113,8 +113,8 @@ def dashboard():
             # model_response = json.dumps({'status':model_response})
 
             # return jsonify(model_response)
-            
-            return send_file(os.path.join(cfg.churn_paths.save_file_path, new_filename))
+            print("Hello World")
+            return send_from_directory(cfg.churn_paths.save_file_path,new_filename)
         elif request.form['submit-button'] =='uploadTrainDataset':
             print('uploadTrainDataset')
             dataset_file = request.files['file']
@@ -128,6 +128,7 @@ def dashboard():
             # main.main(file_path)
             return {'status':'Model has been successfully trained on your data'}
     return render_template('dashboard.html',data= email)
+
 
 
 # @app.route("/prediction/train")
@@ -173,15 +174,15 @@ def disease_predict():
         uploaded_file = request.files['file']
     
         
-        if uploaded_file:
-            # Save the file to a folder on the server
-            uploaded_file.save('E:/FYP/mlops/MLOps-FYP/WebApp/templates/static/uploads/' + uploaded_file.filename)
-            # return
-            prediction = predictor.predict(uploaded_file,loaded_model)
-            # # print(prediction)
-            # # # Render the uploaded image on the screen
-            prediction = json.dumps({'status':prediction})
-            return jsonify(prediction)
+        # if uploaded_file:
+        #     # Save the file to a folder on the server
+        #     uploaded_file.save('E:/FYP/mlops/MLOps-FYP/WebApp/templates/static/uploads/' + uploaded_file.filename)
+        #     # return
+        #     prediction = predictor.predict(uploaded_file,loaded_model)
+        #     # # print(prediction)
+        #     # # # Render the uploaded image on the screen
+        #     prediction = json.dumps({'status':prediction})
+        #     return jsonify(prediction)
             
 
     return render_template('disease_predict.html')

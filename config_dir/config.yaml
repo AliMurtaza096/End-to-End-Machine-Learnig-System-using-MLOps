@@ -7,7 +7,7 @@ churn_paths:
   mlflow_tracking_uri: ${hydra:runtime.cwd}/./mlruns
   model_artifact_dir: runs:/2edb2142fd414ba9bf9d04cb64aa4d0b/model
   fig_path: ./src/figures/confusion_matrix.png
-  save_file_path: ./dataset/download
+  save_file_path: WebApp/download
 churn_params:
   train_test_split: 0.2
 
