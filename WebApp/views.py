@@ -94,8 +94,8 @@ def dashboard():
         
             dataset_file = request.files['file']
             filename = secure_filename(dataset_file.filename)
-            dataset_file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            dataset_file.save(os.path.join(cfg.churn_paths.save_file_path, filename))
+            file_path = os.path.join(cfg.churn_paths.save_file_path, filename)
             file_data = pd.read_csv(file_path)
             
             predictor = ChurnPredict(cfg.churn_paths.model_artifact_dir,**{'data' :file_data})
@@ -104,23 +104,23 @@ def dashboard():
             # df = pd.DataFrame(model_response)
             
             new_filename = f'{filename.split(".")[0]}_{str(datetime.now())}.csv'
-            
             model_response.to_csv(os.path.join(cfg.churn_paths.save_file_path,new_filename))
             download_file = os.path.join(cfg.churn_paths.save_file_path,new_filename)
             # return jsonify(model_response)
+            download_file = f'download/{new_filename}'
             # return send_file(
             # download_file,
             # as_attachment=True,
             # download_name=new_filename,
             # mimetype='text/csv')
-            return jsonify({"file_path": download_file})
+            return jsonify(new_filename)
         
         elif request.form['submit-button'] =='uploadTrainDataset':
             
             dataset_file = request.files['file']
             filename = secure_filename(dataset_file.filename)
-            dataset_file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            dataset_file.save(os.path.join("./",app.config['UPLOAD_FOLDER'], filename))
+            file_path = os.path.join("./",app.config['UPLOAD_FOLDER'], filename)
 
             
             retrain = Retrain(file_path)
@@ -132,7 +132,7 @@ def dashboard():
 
 @app.route("/download/<filename>" , methods=["GET","POST"])
 def download(filename):
-    return send_from_directory(cfg.churn_paths.save_file_path,filename)
+    return send_from_directory(app.config['UPLOAD_FOLDER'],filename, as_attachment=True)
 
 
 

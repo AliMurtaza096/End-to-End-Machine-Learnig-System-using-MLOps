@@ -9,7 +9,7 @@ with app.app_context():
 
  
  
-    UPLOAD_FOLDER = ''
+    UPLOAD_FOLDER = 'download'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     
     app.config['SQLALCHEMY_DATABASE_URI']= 'mysql+pymysql://admin:Sardar12@newmlopsdb.chs6rlz4ojkg.ap-south-1.rds.amazonaws.com:3306/newmlopsdb'

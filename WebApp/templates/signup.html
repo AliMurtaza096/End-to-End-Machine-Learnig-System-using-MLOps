@@ -50,7 +50,7 @@ $("button").click(function (e) {
     function  sendRequest(email,password,cpassword){
     $.ajax({
         type:'POST',
-        url: 'http://127.0.0.1:5000/signup',
+        url: '/signup',
         
         data:{'email':email,'password':password,'cpassword':cpassword},
         success: function (response) {

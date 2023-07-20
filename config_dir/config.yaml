@@ -7,7 +7,7 @@ churn_paths:
   mlflow_tracking_uri: ./mlruns
   model_artifact_dir: runs:/19ddac32b64c4465b70066464283f872/model
   fig_path: ./src/figures/confusion_matrix.png
-  save_file_path: /home/ali/Desktop/mlops-fyp/mlops/FYP-MLOps/WebApp/download
+  save_file_path: ./WebApp/download
 churn_params:
   train_test_split: 0.2
 

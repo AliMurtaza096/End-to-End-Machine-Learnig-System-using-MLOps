@@ -45,11 +45,11 @@
         </form>   
         </div>
         <hr>
-        
+        <span class="res-pre"> </span><span style="font-size:20px" id="predicted-response"  > <a href="" id="downloadLink" style="display: none;">Download Predictions</a></span>
     </div>
     <hr>
-    <span class="res-pre"> </span><span style="font-size:20px" id="predicted-response"  ></span>
-    <a href="#" id="downloadLink" style="display: none;">Download Predictions</a>
+   
+    
     
 </div>
 </center>
@@ -100,8 +100,8 @@
                             processData: false, // Prevent jQuery from automatically processing the data
                             contentType: false, // Prevent jQuery from automatically setting the content type
                             success: function (response) {
-                                console.log("Yes")
-                                $("#downloadLink").attr("href", response['file_path']);
+                                console.log(response)
+                                $("#downloadLink").attr("href", "download/"+response);
                                 $("#downloadLink").show();
                                 
                                 
