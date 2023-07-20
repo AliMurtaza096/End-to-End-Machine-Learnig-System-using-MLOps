@@ -19,13 +19,13 @@ image_names:
 image_paths:
   train_dir: ${hydra:runtime.cwd}/./chest_xray/train
   mlflow_tracking_uri: ${hydra:runtime.cwd}/./mlruns
-  model_artifact_dir: runs:/06a4f01b05124aa59eb8d8d3a833528a/model
+  model_artifact_dir: runs:/fc5dfbcd5d0742d08338e6123022d05a/model
 
 
 image_params:
   train_test_split: 0.2
-  batch_size: 10
-  epochs: 1
+  batch_size: 32
+  epochs: 5
   lr: 0.001
 
 

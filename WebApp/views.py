@@ -13,12 +13,13 @@ from werkzeug.utils import secure_filename
 import pandas as pd
 from datetime import datetime
 
-# predictor = DiseasePredict("runs:/215fe8821da24c199208cb1c267ab88c/model")
-# loaded_model = predictor.load_model()
+cfg = OmegaConf.load('./config_dir/config.yaml')
+predictor = DiseasePredict(cfg.image_paths.model_artifact_dir)
+loaded_model = predictor.load_model()
 user_details_schema = User_DetailsSchema()
 user_details_List_schema = User_DetailsSchema(many=True)
 
-cfg = OmegaConf.load('./config_dir/config.yaml')
+
 
 app.secret_key = "asdsadsdvbvsdgvcgjsdvvsdcvg"
 
@@ -105,16 +106,14 @@ def dashboard():
             new_filename = f'{filename.split(".")[0]}_{str(datetime.now())}.csv'
             
             model_response.to_csv(os.path.join(cfg.churn_paths.save_file_path,new_filename))
-            print(new_filename)
-
-            # model_response = list(model_response)
-            # model_response =  [int(i) for i in model_response]
-            
-            # model_response = json.dumps({'status':model_response})
-
-            return jsonify(model_response)
-            print("Hello World")
-            return redirect(f"/download/{new_filename}")
+            download_file = os.path.join(cfg.churn_paths.save_file_path,new_filename)
+            # return jsonify(model_response)
+            # return send_file(
+            # download_file,
+            # as_attachment=True,
+            # download_name=new_filename,
+            # mimetype='text/csv')
+            return jsonify({"file_path": download_file})
         
         elif request.form['submit-button'] =='uploadTrainDataset':
             
@@ -133,7 +132,7 @@ def dashboard():
 
 @app.route("/download/<filename>" , methods=["GET","POST"])
 def download(filename):
-    send_from_directory(cfg.churn_paths.save_file_path,filename)
+    return send_from_directory(cfg.churn_paths.save_file_path,filename)
 
 
 
@@ -180,15 +179,15 @@ def disease_predict():
         uploaded_file = request.files['file']
     
         
-        # if uploaded_file:
-        #     # Save the file to a folder on the server
-        #     uploaded_file.save('E:/FYP/mlops/MLOps-FYP/WebApp/templates/static/uploads/' + uploaded_file.filename)
+        if uploaded_file:
+            # Save the file to a folder on the server
+            uploaded_file.save('./save_files/' + uploaded_file.filename)
         #     # return
-        #     prediction = predictor.predict(uploaded_file,loaded_model)
-        #     # # print(prediction)
+            prediction = predictor.predict(uploaded_file,loaded_model)
+            print(prediction)
         #     # # # Render the uploaded image on the screen
-        #     prediction = json.dumps({'status':prediction})
-        #     return jsonify(prediction)
+            prediction = json.dumps({'status':prediction})
+            return jsonify(prediction)
             
 
     return render_template('disease_predict.html')
@@ -199,4 +198,4 @@ def make_session_permanent():
     session.permanent = True
             
         
-        
+      

@@ -1,0 +1,13 @@
+aliases: []
+creation_timestamp: 1689845563520
+current_stage: None
+description: null
+last_updated_timestamp: 1689845563520
+name: X-Ray Image Disease Classification
+run_id: d7c607358b1249d28648ef49d6a15fbd
+run_link: null
+source: /home/ali/Desktop/mlops-fyp/mlops/MLOps-Last/./mlruns/967032805873801562/d7c607358b1249d28648ef49d6a15fbd/artifacts/model
+status: READY
+status_message: null
+user_id: null
+version: 4

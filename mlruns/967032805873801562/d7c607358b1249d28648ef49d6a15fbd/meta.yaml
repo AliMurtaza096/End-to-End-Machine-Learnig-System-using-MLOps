@@ -1,0 +1,15 @@
+artifact_uri: /home/ali/Desktop/mlops-fyp/mlops/MLOps-Last/./mlruns/967032805873801562/d7c607358b1249d28648ef49d6a15fbd/artifacts
+end_time: 1689845563752
+entry_point_name: ''
+experiment_id: '967032805873801562'
+lifecycle_stage: active
+run_id: d7c607358b1249d28648ef49d6a15fbd
+run_name: trusting-jay-948
+run_uuid: d7c607358b1249d28648ef49d6a15fbd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1689844829088
+status: 3
+tags: []
+user_id: ali

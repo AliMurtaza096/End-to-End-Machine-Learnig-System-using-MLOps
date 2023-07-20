@@ -1,0 +1,15 @@
+artifact_uri: /home/ali/Desktop/mlops-fyp/mlops/MLOps-Last/./mlruns/967032805873801562/fc5dfbcd5d0742d08338e6123022d05a/artifacts
+end_time: 1689850715225
+entry_point_name: ''
+experiment_id: '967032805873801562'
+lifecycle_stage: active
+run_id: fc5dfbcd5d0742d08338e6123022d05a
+run_name: agreeable-fawn-74
+run_uuid: fc5dfbcd5d0742d08338e6123022d05a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1689847370322
+status: 3
+tags: []
+user_id: ali

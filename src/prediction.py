@@ -67,7 +67,7 @@ class ChurnPredict:
     
     def batch_predict(self):
         self.dataa = self.dataa['data']
-        print(self.dataa)
+        
         
         self.dataa.drop(['RowNumber', 'CustomerId', 'Surname'], axis=1, inplace=True)
 
@@ -86,7 +86,7 @@ class ChurnPredict:
         loaded_model = mlflow.pyfunc.load_model(self.model_artifact_uri)
         # Predict on a Pandas DataFrame.
         prediction = loaded_model.predict(test_transformed)
-        print(prediction)
+       
         self.dataa['Results']  = prediction
 
         return self.dataa

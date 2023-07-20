@@ -49,7 +49,7 @@
     </div>
     <hr>
     <span class="res-pre"> </span><span style="font-size:20px" id="predicted-response"  ></span>
-        
+    <a href="#" id="downloadLink" style="display: none;">Download Predictions</a>
     
 </div>
 </center>
@@ -101,6 +101,8 @@
                             contentType: false, // Prevent jQuery from automatically setting the content type
                             success: function (response) {
                                 console.log("Yes")
+                                $("#downloadLink").attr("href", response['file_path']);
+                                $("#downloadLink").show();
                                 
                                 
                                     

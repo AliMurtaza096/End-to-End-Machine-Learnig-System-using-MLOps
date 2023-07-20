@@ -1,0 +1,15 @@
+artifact_uri: /home/ali/Desktop/mlops-fyp/mlops/MLOps-Last/./mlruns/967032805873801562/59d088b6758e44b5b29f0db504ef6596/artifacts
+end_time: 1689844649103
+entry_point_name: ''
+experiment_id: '967032805873801562'
+lifecycle_stage: active
+run_id: 59d088b6758e44b5b29f0db504ef6596
+run_name: rare-steed-983
+run_uuid: 59d088b6758e44b5b29f0db504ef6596
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1689843896434
+status: 3
+tags: []
+user_id: ali
