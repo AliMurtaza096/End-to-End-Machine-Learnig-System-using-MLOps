@@ -1,0 +1,15 @@
+artifact_uri: /home/ali/Desktop/mlops-fyp/mlops/MLOps-Last/./mlruns/628052162558681643/2bcb8602d7e74d48b4cd24fd380cae46/artifacts
+end_time: 1689885902062
+entry_point_name: ''
+experiment_id: '628052162558681643'
+lifecycle_stage: active
+run_id: 2bcb8602d7e74d48b4cd24fd380cae46
+run_name: bold-mouse-292
+run_uuid: 2bcb8602d7e74d48b4cd24fd380cae46
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1689885891426
+status: 3
+tags: []
+user_id: ali

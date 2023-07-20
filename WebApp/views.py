@@ -106,21 +106,17 @@ def dashboard():
             new_filename = f'{filename.split(".")[0]}_{str(datetime.now())}.csv'
             model_response.to_csv(os.path.join(cfg.churn_paths.save_file_path,new_filename))
             download_file = os.path.join(cfg.churn_paths.save_file_path,new_filename)
-            # return jsonify(model_response)
+          
             download_file = f'download/{new_filename}'
-            # return send_file(
-            # download_file,
-            # as_attachment=True,
-            # download_name=new_filename,
-            # mimetype='text/csv')
+           
             return jsonify(new_filename)
         
         elif request.form['submit-button'] =='uploadTrainDataset':
             
             dataset_file = request.files['file']
             filename = secure_filename(dataset_file.filename)
-            dataset_file.save(os.path.join("./",app.config['UPLOAD_FOLDER'], filename))
-            file_path = os.path.join("./",app.config['UPLOAD_FOLDER'], filename)
+            dataset_file.save(os.path.join(cfg.churn_paths.save_file_path, filename))
+            file_path = os.path.join(cfg.churn_paths.save_file_path, filename)
 
             
             retrain = Retrain(file_path)
