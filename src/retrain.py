@@ -17,6 +17,9 @@ class Retrain():
         self.data_path= data_path
     
     def retrain_model(self):
+        print("Now")
+        # print(cfg)
+        print(cfg.churn_paths.mlflow_tracking_uri)
         tracker = MLFlowTracker(cfg.churn_names.experiment_name,
                                 cfg.churn_paths.mlflow_tracking_uri)
         
@@ -25,6 +28,7 @@ class Retrain():
         
         previous_data_read = pd.read_csv(cfg.churn_paths.train_dir)
         new_data_read = pd.read_csv(self.data_path)
+        
         
         merged_data = pd.concat([previous_data_read,new_data_read],axis='rows')
         

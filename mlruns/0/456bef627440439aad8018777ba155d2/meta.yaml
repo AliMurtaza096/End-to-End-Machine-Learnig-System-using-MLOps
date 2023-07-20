@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ali/Desktop/mlops-fyp/mlops/MLOps-Last/mlruns/0/456bef627440439aad8018777ba155d2/artifacts
+end_time: 1689770576088
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 456bef627440439aad8018777ba155d2
+run_name: Churn Prediction
+run_uuid: 456bef627440439aad8018777ba155d2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1689770576075
+status: 3
+tags: []
+user_id: ali

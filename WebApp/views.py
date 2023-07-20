@@ -1,5 +1,5 @@
 import os
-from flask import render_template,request,session,jsonify,send_file,send_from_directory
+from flask import render_template,request,session,jsonify,send_file,send_from_directory,redirect,url_for
 
 from src.prediction import ChurnPredict
 from image.prediction import DiseasePredict
@@ -112,22 +112,28 @@ def dashboard():
             
             # model_response = json.dumps({'status':model_response})
 
-            # return jsonify(model_response)
+            return jsonify(model_response)
             print("Hello World")
-            return send_from_directory(cfg.churn_paths.save_file_path,new_filename)
+            return redirect(f"/download/{new_filename}")
+        
         elif request.form['submit-button'] =='uploadTrainDataset':
-            print('uploadTrainDataset')
+            
             dataset_file = request.files['file']
             filename = secure_filename(dataset_file.filename)
             dataset_file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-            print(file_path)
+
+            
             retrain = Retrain(file_path)
             retrain.retrain_model()
             
             # main.main(file_path)
             return {'status':'Model has been successfully trained on your data'}
     return render_template('dashboard.html',data= email)
+
+@app.route("/download/<filename>" , methods=["GET","POST"])
+def download(filename):
+    send_from_directory(cfg.churn_paths.save_file_path,filename)
 
 
 
